@@ -1,0 +1,46 @@
+<div class="container">
+<br/>
+<h1>Welcome to Fake Umbrella!</h1>
+<br/>
+<h2> List of Raining Customers </h2>
+<br/>
+<table class="table table-hover">
+  <thead>
+  <tr>
+      <td>Customer Name</td>
+      <td>Person of Cantact</td>
+      <td>Phone Number</td>
+      <td>Location</td>
+      <td>Number Of Employees</td>
+      <td>Day of Rain</td>
+      <td colspan="2">Actions</td>
+  </tr>
+  </thead>
+
+  <tbody>
+      <tr *ngFor="let customer of customers">
+          <td>{{ customer.CustomerName }}</td>
+          <td>{{ customer.PersonOfContact }}</td>
+          <td>{{ customer.PhoneNumber }}</td>
+          <td>{{ customer.Location }}</td>
+          <td>{{ customer.NumberOfEmployees }}</td>
+          <td>{{ customer.DayofRain}}</td>
+          <td><a [routerLink]="['/edit', customer._id]" class="btn btn-primary">Edit</a></td>
+          <td><a (click) = "deleteCustomer(customer._id)" class="btn btn-danger">Delete</a>
+      </tr>
+  </tbody>
+</table>
+<br/>
+<h2> Top Four Customers</h2>
+<br/>
+<div style="display: block" *ngIf="isLoaded">
+    <canvas baseChart
+            [datasets]="barChartData"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [legend]="barChartLegend"
+            [chartType]="barChartType">
+    </canvas>
+  </div>
+
+</div>

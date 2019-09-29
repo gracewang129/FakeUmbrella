@@ -1,0 +1,72 @@
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="angForm" novalidate>
+      <div class="form-group">
+        <label class="col-md-4">Customer Name</label>
+        <input type="text" class="form-control"placeholder="{{customer.CustomerName}}"
+          formControlName="CustomerName"
+          #CustomerName />
+      </div>
+      <div *ngIf="angForm.controls['CustomerName'].invalid && (angForm.controls['CustomerName'].dirty || angForm.controls['CustomerName'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['CustomerName'].errors.required">
+          Customer Name is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Person of Contact </label>
+        <input type="text" class="form-control" placeholder="{{customer.PersonOfContact}}"
+          formControlName="PersonOfContact"
+          #PersonOfContact
+        />
+      </div>
+      <div *ngIf="angForm.controls['PersonOfContact'].invalid && (angForm.controls['PersonOfContact'].dirty || angForm.controls['PersonOfContact'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['PersonOfContact'].errors.required">
+          Person of Contact is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Phone Number</label>
+        <input type="number" class="form-control" placeholder="{{customer.PhoneNumber}}"
+          formControlName="PhoneNumber"
+          #PhoneNumber
+        />
+      </div>
+      <div *ngIf="angForm.controls['PhoneNumber'].invalid && (angForm.controls['PhoneNumber'].dirty || angForm.controls['PhoneNumber'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['PhoneNumber'].errors.required">
+          Phone Number is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Location</label>
+        <input type="text" class="form-control" placeholder="{{customer.Location}}"
+          formControlName="Location"
+          #Location
+        />
+      </div>
+      <div *ngIf="angForm.controls['Location'].invalid && (angForm.controls['Location'].dirty || angForm.controls['Location'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['Location'].errors.required">
+          Location is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">Number of Employees</label>
+        <input type="number" class="form-control" placeholder="{{customer.NumberOfEmployees}}"
+          formControlName="NumberOfEmployees"
+          #NumberOfEmployees
+        />
+      </div>
+      <div *ngIf="angForm.controls['NumberOfEmployees'].invalid && (angForm.controls['NumberOfEmployees'].dirty || angForm.controls['NumberOfEmployees'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['NumberOfEmployees'].errors.required">
+          Number of Employees is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <button (click) = "updateCustomer(CustomerName.value, PersonOfContact.value, PhoneNumber.value, Location.value, NumberOfEmployees.value)" type="submit" class="btn btn-primary"
+        [disabled]="angForm.invalid" >
+          Save Changes
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
