@@ -26,18 +26,21 @@ export class CustomerAddComponent implements OnInit {
   }
 
 
-  addCustomer(CustomerName, PersonOfContact, PhoneNumber, Location, NumberOfEmployees,) {
-    this.timeout(CustomerName, PersonOfContact, PhoneNumber, Location, NumberOfEmployees).then((value) => {
-      this.router.navigate(['']);
-
+  addCustomer(CustomerName, PersonOfContact, PhoneNumber, Location, NumberOfEmployees) {
+    this.timeout(CustomerName, PersonOfContact, PhoneNumber, Location, NumberOfEmployees)
+    .then((value) => {
+        this.router.navigate(['']);
     });
+
 
   }
   timeout(CustomerName, PersonOfContact, PhoneNumber, Location, NumberOfEmployees){
     return new Promise((resolve, reject) => {
 
-    this.customerService.addCustomer(CustomerName, PersonOfContact, PhoneNumber, Location, NumberOfEmployees);
-    setTimeout(resolve, 100, "done");
+        this.customerService.addCustomer(CustomerName, PersonOfContact, PhoneNumber, Location, NumberOfEmployees);
+
+      setTimeout(resolve, 100, "done");
+
     });
   }
   ngOnInit() {

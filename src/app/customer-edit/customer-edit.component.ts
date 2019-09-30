@@ -36,19 +36,20 @@ export class CustomerEditComponent implements OnInit {
   }
 
   updateCustomer(CustomerName, PersonOfContact, PhoneNumber, Location, NumberOfEmployees, id) {
-    this.timeout(CustomerName, PersonOfContact, PhoneNumber, Location, NumberOfEmployees, id).then((value) => {
-      this.router.navigate(['']);
-
+    this.timeout(CustomerName, PersonOfContact, PhoneNumber, Location, NumberOfEmployees, id)
+    .then((value) => {
+        this.router.navigate(['']);
     });
+
 
   }
   timeout(CustomerName, PersonOfContact, PhoneNumber, Location, NumberOfEmployees, id){
     return new Promise((resolve, reject) => {
       this.route.params.subscribe(params => {
         this.customerService.updateCustomer(CustomerName, PersonOfContact, PhoneNumber, Location, NumberOfEmployees, params.id);
-
       });
-    setTimeout(resolve, 100, "done");
+      setTimeout(resolve, 100, "done");
+
     });
   }
 }
